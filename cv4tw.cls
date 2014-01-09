@@ -58,6 +58,9 @@
 \renewcommand*{\title}[1]{
 	\def\@cvtitle{#1}
 }
+\renewcommand*{\quote}[1]{
+	\def\@cvquote{#1}
+}
 \newcommand*{\firstname}[1]{
 	\def\@cvfirstname{#1}
 }

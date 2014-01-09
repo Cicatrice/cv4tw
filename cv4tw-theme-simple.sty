@@ -32,17 +32,16 @@
 % As usual in LaTeX, maketitle will build the document main title.
 % It should be called once, at very beginning of document.
 \renewcommand*{\maketitle}{
+	\@ifundefined{@cvpicture}{}{ \begin{minipage}[m]{\cvpicturewidth} \fboxsep=1mm\fboxrule=0.05pt \fcolorbox{black}{white}{ \includegraphics[keepaspectratio=true,width=\cvpicturewidth]{\@cvpicture} }\end{minipage}\hspace{5ex}}
 	\begin{minipage}[m]{\cvtitlewidth}
-	{\mystyle[title]\@ifundefined{@cvtitle}{~}{\@cvtitle}}
+	\@ifundefined{@cvtitle}{~}{\mystyle[title]\@cvtitle}
 	\end{minipage}\hfill
 	\begin{minipage}[m]{\cvnamewidth}
 	\begin{flushright}
 	\mystyle[name]\@cvfirstname\\[0em]\@cvlastname
 	\end{flushright}
 	\end{minipage}
-	\@ifundefined{@cvpicture}{}{\begin{minipage}[m]{\cvpicturewidth}\fboxsep=1mm\fboxrule=0.05pt\fcolorbox{black}{white}{\includegraphics[keepaspectratio=true,width=\cvpicturewidth]{\@cvpicture}\end{minipage}}}
 	\begin{minipage}[!t]{\cvassetspanelwidth}
-	
 		\begin{multicols}{2}
 		\ifcvasset[0]{\begin{list}{\mystyle[assetbullet]}{\setlength{\leftmargin}{\cvassetspanelleftmargin}}
 \setlength{\itemsep}{\cvassetitemsep}
@@ -58,6 +57,7 @@
 \renderassetifdefined{9}
 \end{list}}{}
 		\end{multicols}
+	\@ifundefined{@cvquote}{}{\mystyle[quote]\@cvquote}
 	\end{minipage}\hfill
 \begin{minipage}[!t]{\cvcontactpanelwidth}
 \begin{flushright}
