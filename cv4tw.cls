@@ -71,6 +71,7 @@
 	%Load scheme if asked
 	\RequirePackage[#1]{cv4tw-scheme}
 	%Apply theme
+	\RequirePackage[]{cv4tw-theme-core}
 	\RequirePackage[]{cv4tw-theme-#2}
 }
 
@@ -113,13 +114,14 @@
 \renewcommand*{\maketitle}[1]{ }
 \renewcommand*{\section}[1]{ }
 \renewcommand*{\subsection}[1]{ }
-\newcommand*{\cvjob}[5]{ }
-\newcommand*{\cveducation}[5]{ }
+\newcommand*{\story}[5]{ }
+\newcommand*{\renderasset}{ }
+\newcommand*{\renderassetifdefined}{ }
+\newcommand*{\rendercontact}{ }
+\newcommand*{\rendercontactifdefined}{ }
 
-\newenvironment{cvassets}{ }{ }
-\newenvironment{cvcontacts}{ }{ }
-\newenvironment{cvmissions}{ }{ }
-\newenvironment{cvskills}[1]{ }{ }
+\newenvironment{missions}{ }{ }
+\newenvironment{skills}[1]{ }{ }
 
 \makeatletter
 \newcommand{\colorletifnotdef}[2]{%
@@ -127,5 +129,7 @@
 \newcommand{\definecolorifnotdef}[3]{%
   \@ifundefined{\string\color@#1}{\definecolor{#1}{#2}{#3}}{}}
 \makeatother
+
+
 
 \endinput

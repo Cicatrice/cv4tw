@@ -1,36 +1,12 @@
-\RequirePackage[left=1cm,right=1cm,top=1cm,bottom=1.8cm]{geometry}
-\RequirePackage{libertine}
-\RequirePackage{multicol}
-\RequirePackage{pifont}
-\RequirePackage{pbox}
-\RequirePackage{needspace}
-\RequirePackage{amssymb}
-\RequirePackage{fontspec}
-\RequirePackage{fontawesome}
-\RequirePackage{realboxes}
-\RequirePackage{array}
 
-%Useful lengths
-\newlength{\cvleftwidth}\setlength{\cvleftwidth}{4.5cm}
-\newlength{\cvrightwidth}\setlength{\cvrightwidth}{14cm}
 \newlength{\cvtitlewidth}\setlength{\cvtitlewidth}{8cm}
 \newlength{\cvnamewidth}\setlength{\cvnamewidth}{6cm}
 \newlength{\cvpicturewidth}\setlength{\cvpicturewidth}{2.4cm}
 \newlength{\cvassetspanelwidth}\setlength{\cvassetspanelwidth}{12cm}
 \newlength{\cvassetitemsep}\setlength{\cvassetitemsep}{2em}
 \newlength{\cvassetspanelleftmargin}\setlength{\cvassetspanelleftmargin}{1cm}
-\newlength{\cvskillitemparskip}\setlength{\cvskillitemparskip}{-0.8em}
-\newlength{\cvmissionsitemsep}\setlength{\cvmissionsitemsep}{0em}
 \newlength{\cvcontactpanelwidth}\setlength{\cvcontactpanelwidth}{7cm}
 
-% Set \emph command with "em" color
-\DeclareTextFontCommand{\emph}{\color{main}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    Theme macros                                                              %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% As usual in LaTeX, maketitle will build the document main title.
-% It should be called once, at very beginning of document.
 \renewcommand*{\maketitle}{
 	\@ifundefined{@cvpicture}{}{ \begin{minipage}[m]{\cvpicturewidth} \fboxsep=1mm\fboxrule=0.05pt \fcolorbox{black}{white}{ \includegraphics[keepaspectratio=true,width=\cvpicturewidth]{\@cvpicture} }\end{minipage}\hspace{5ex}}
 	\begin{minipage}[m]{\cvtitlewidth}
@@ -85,92 +61,12 @@
 \\[1em]
 }
 
-\newcommand*{\renderasset}[1]{\item{\mystyle[asset] \cvasset[#1]}}
+\renewcommand*{\renderasset}[1]{\item{\mystyle[asset] \cvasset[#1]}}
 
-\newcommand*{\renderassetifdefined}[1]{\ifcvasset[#1]{\renderasset{#1}}{\ignorespaces}}
+\renewcommand*{\renderassetifdefined}[1]{\ifcvasset[#1]{\renderasset{#1}}{\ignorespaces}}
 
-\newcommand*{\rendercontact}[1]{\mystyle[#1bullet] & \begin{tabular}[t]{>{\mystyle[#1]}l}\cvcontactlink{#1}\end{tabular} \\[0.3em]}
+\renewcommand*{\rendercontact}[1]{\mystyle[#1bullet] & \begin{tabular}[t]{>{\mystyle[#1]}l}\cvcontactlink{#1}\end{tabular} \\[0.3em]}
 
-\newcommand*{\rendercontactifdefined}[1]{\ifcvcontact[#1]{\rendercontact{#1}}{\ignorespaces}}
+\renewcommand*{\rendercontactifdefined}[1]{\ifcvcontact[#1]{\rendercontact{#1}}{\ignorespaces}}
 
-\renewcommand*{\section}[1]{
-\needspace{4\baselineskip}
-\begin{center}
-  {\mystyle[sectiontitle] #1}\\[-0.8em]
-  {\color{sectionrule}\rule{\textwidth}{0.05pt}}
-\end{center}
-}
-
-%\cvjob{title}{company}{date \& location}{quick notes (e.g. competences list)}{description}
-\renewcommand*{\cvjob}[5]{
-	\begin{flushleft}
-	\begin{minipage}[t]{\cvleftwidth}
-		{\mystyle[cvjobdatelocation] #3}
-		\if\relax\detokenize{#4}\relax
-		\relax
-		\else 
-			\\[1em]
-			{\mystyle[cvjobquicknotes] #4}
-		\fi
-	\end{minipage}
-	\begin{minipage}[t]{\cvrightwidth}
-  		\vspace*{-0.7em}
-		{\mystyle[cvjobtitle] #1}{\mystyle[cvjobcompany],~#2}
-		\if\relax\detokenize{#5}\relax
-		\relax
-		\else
-			\\[0.8em]
-			{\mystyle[cvjobdescription] #5}
-		\fi
-	\end{minipage}
-	\\
-	\end{flushleft}
-}
-
-\renewcommand*{\cveducation}[5]{
-	\begin{flushleft}
-	\begin{minipage}[t]{\cvleftwidth}
-		{\mystyle[cveducationdatelocation] #3} 
-		\if\relax\detokenize{#4}\relax
-		\else
-			\\[1em]
-			{\mystyle[cveducationquicknotes] #4}
-		\fi
-	\end{minipage}
-	\begin{minipage}[t]{\cvrightwidth}
-  		\vspace*{-0.7em}
-		{\mystyle[cveducationtitle] #1}{\mystyle[cvedcuationacademy],~#2} %\\[0.8em]
-		\if\relax\detokenize{#5}\relax
-		\else
-			\\[0.8em]
-			{\mystyle[cveducationdescription] #5}
-		\fi
-	\end{minipage}
-	\\
-	\end{flushleft}
-}
-
-\renewenvironment*{cvmissions}{
-	\begin{list}{\mystyle[missionbullet]}{ \setlength{\itemsep}{\cvmissionsitemsep} \setlength{\leftmargin}{2em}\mystyle[mission] }
-}{
-	\end{list}
-}
-\renewenvironment*{cvskills}[1]{ 
-	\newcommand*{\cvskill}[2]{ ##1\hspace*{2ex} & ##2 \\[\cvskillitemparskip] }
-	\begin{minipage}[t]{\textwidth}
-	{\hspace*{\cvleftwidth}\mystyle[subsectiontitle] #1}\\[-0.4em]
-	\begin{tabular}[t]{@{}>{\mystyle[cvskillname]\hfill}p{\cvleftwidth}@{}>{\mystyle[cvskilldescription]}p{\cvrightwidth}@{}} } 
-	{ \end{tabular}\\[2em] \end{minipage} }
-
-\fancypagestyle{cvsimple}{
- \renewcommand{\headrulewidth}{0pt}
- \renewcommand{\footrulewidth}{0pt}
- \fancyhf{}
- \lfoot{\mystyle[footnote]\@cvfirstname~\@cvlastname}
- \cfoot{\mystyle[footnote]\@ifundefined{@cvtitle}{}{\@cvtitle}}
- \rfoot{\mystyle[footnote]\thepage/\pageref{LastPage}}
-}
-\pagestyle{cvsimple}
-
-\AtBeginDocument{\maketitle}
 \endinput
