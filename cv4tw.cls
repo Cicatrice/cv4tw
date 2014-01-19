@@ -2,7 +2,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \LoadClassWithOptions{article}
-\ProvidesClass{cv4tw}[2013/12/28 v0.0 simple and clean curriculum vitae, with assets]
+\ProvidesClass{cv4tw}[2014/01/19 v0.1 LaTeX CV class, with assets, social networks, and customizable styles]
 \RequirePackage{newenviron}
 \RequirePackage{etoolbox}
 \RequirePackage{xcolor}
