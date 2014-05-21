@@ -1,6 +1,6 @@
 CVNAME=sample-jules-verne
 LATEX=xelatex
-export TEXINPUTS=..
+export TEXINPUTS=.:..:
 
 all: $(CVNAME).pdf
 
