@@ -1,9 +1,11 @@
-\RequirePackage{picins}
+%\RequirePackage{float}
+%\RequirePackage{picins}
 
 %Useful lengths
 \newlength{\cvpicturewidth}\setlength{\cvpicturewidth}{3.2cm}
 \setlength{\cvleftwidth}{4cm}
 \setlength{\cvrightwidth}{8cm}
+%\setlength{\sectionrule}{10cm}
 \newlength{\cvtitlecolumnwidth}\setlength{\cvtitlecolumnwidth}{5.5cm}
 \newlength{\cvmaincolumnwidth}\setlength{\cvmaincolumnwidth}{13cm}
 \newlength{\cvtitlewidth}\setlength{\cvtitlewidth}{10cm}
@@ -19,8 +21,9 @@
 
 \renewcommand*{\maketitle}{
 	{\mystyle[name]\@cvfirstname~\@cvlastname\\[0.5em]}
-\parpic[lt]{
-	\begin{minipage}{\cvtitlecolumnwidth}
+%\parpic[lt]{
+%\begin{figure}[t]
+	\begin{minipage}[c]{\cvtitlecolumnwidth}
 	\@ifundefined{@cvpicture}{}{\centering\begin{minipage}[m]{\cvpicturewidth}\fboxsep=1mm\fboxrule=0.05pt\fcolorbox{black}{white}{\includegraphics[keepaspectratio=true,width=\cvpicturewidth]{\@cvpicture}}\end{minipage}\\}
 	\@ifundefined{@cvtitle}{}{{\mystyle[title]\@cvtitle}\\[0.5em]}
 	\@ifundefined{@cvquote}{}{{\mystyle[quote]\@cvquote}\\[0.5em]}
@@ -42,6 +45,16 @@
 \rendercontactifdefined{cellphone}
 \rendercontactifdefined{phone}
 \rendercontactifdefined{fax}
+\rendercontactifdefined{custom0}
+\rendercontactifdefined{custom1}
+\rendercontactifdefined{custom2}
+\rendercontactifdefined{custom3}
+\rendercontactifdefined{custom4}
+\rendercontactifdefined{custom5}
+\rendercontactifdefined{custom6}
+\rendercontactifdefined{custom7}
+\rendercontactifdefined{custom8}
+\rendercontactifdefined{custom9}
 \rendercontactifdefined{github}
 \rendercontactifdefined{linkedin}
 \rendercontactifdefined{twitter}
@@ -55,9 +68,12 @@
 \rendercontactifdefined{address}
 \end{tabular}
 	\end{minipage}
-}
+%}
+%\end{figure}
+\begin{minipage}{\cvmaincolumnwidth}
 }
 
+\AtEndDocument{\end{minipage}}
 
 \renewcommand*{\renderasset}[1]{ \mystyle[assetbullet]&\begin{tabular}[t]{>{\mystyle[asset]}l}\cvasset[#1]\end{tabular}\\[0.3em]}
 

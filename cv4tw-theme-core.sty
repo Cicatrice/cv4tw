@@ -15,7 +15,7 @@
 % Set \emph command with "em" color
 \DeclareTextFontCommand{\emph}{\color{main}}
 
-% Default header
+% Default header & footer
 \fancypagestyle{cvsimple}{
  \renewcommand{\headrulewidth}{0pt}
  \renewcommand{\footrulewidth}{0pt}
@@ -32,6 +32,7 @@
 \newlength{\cvrightwidth}\setlength{\cvrightwidth}{14cm}
 \newlength{\cvskillitemparskip}\setlength{\cvskillitemparskip}{-0.8em}
 \newlength{\cvmissionsitemsep}\setlength{\cvmissionsitemsep}{0em}
+\newlength{\sectionrule}\setlength{\sectionrule}{\textwidth}
 
 % Set \emph command with "em" color
 \DeclareTextFontCommand{\emph}{\color{main}}
@@ -41,7 +42,7 @@
 \needspace{4\baselineskip}
 \begin{center}
   {\mystyle[sectiontitle] #1}\\[-0.8em]
-  {\color{sectionrule}\rule{\textwidth}{0.05pt}}
+  {\color{sectionrule}\rule{\sectionrule}{0.05pt}}
 \end{center}
 }
 

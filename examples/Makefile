@@ -1,4 +1,4 @@
-CVNAME=sample-jules-verne
+CVNAME=sample-jules-verne-compact
 LATEX=xelatex
 export TEXINPUTS=.:..:
 
