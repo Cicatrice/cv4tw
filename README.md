@@ -13,6 +13,13 @@ on Fedora
 sudo yum install texlive texlive-xetex texlive-newenviron texlive-xetex-def texlive-xstring texlive-lastpage texlive-libertine texlive-euenc texlive-pbox texlive-needspace texlive-fontawesome fontawesome-fonts texlive-realboxes
 ```
 
+on Debian-based
+---------------
+* Run the following command
+```bash
+sudo apt-get install texlive-latex-extra texlive-xetex texlive-fonts-extra fonts-linuxlibertine
+```
+
 on Windows
 ----------
 * Install MikTeX
