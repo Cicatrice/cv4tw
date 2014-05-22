@@ -3,6 +3,28 @@ cv4tw
 
 LaTeX CV class, with assets, social networks, and customizable styles
 
+Available themes
+----------------
+* `sharp`: Elegant header, to introduce a long resume
+* `simple`: A classic format, perfect for resume with short contacts details
+* `compact`: design for short CV (1 page), with a left column showing your picture and contact details
+
+Available schemes
+-----------------
+* `celadon`
+* `tan`
+* `gray`
+* `purple`
+* `teal`
+* `minuit`
+* Default theme is red
+* If you want a custom scheme, add the following lines right before `\usetheme` statement
+```tex
+\definecolorifnotdef{contrastmain}{RGB}{219,255,242}  % Main theme color in contrast mode
+\definecolorifnotdef{main}{RGB}{60,76,70}             % Main theme color
+\definecolorifnotdef{soft}{RGB}{50,64,58}             % Soft color, for title
+```
+
 Quick install guide
 ===================
 
@@ -28,8 +50,8 @@ on Windows
 Compile example
 ===============
 * go in cv4tw/examples folder
-* on Windows, edit Makefile, and replace ```TEXINPUTS=.:..:``` with ```TEXINPUTS=..```
-* run : ```make clean && make```
+* on Windows, edit Makefile, and replace `TEXINPUTS=.:..:` with `TEXINPUTS=..`
+* run : `make clean && make`
 
 
 Change logs
