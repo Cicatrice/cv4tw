@@ -1,11 +1,11 @@
 \documentclass[a4paper,11pt]{cv4tw}% options are inherited from article class, and automatically given to this class
 %\usetheme[optional scheme]{theme}
-\usetheme[tan]{sharp}
+\usetheme[minuit]{sharp}
 % Not happy with the default style, or bullet ? Define yours !
 \setmystyle[missionbullet]{\color{soft}$>$~~}
-\setmystyle[assetbullet]{\color{icons}\faBolt}
+\setmystyle[assetbullet]{\color{icons}\faBook}
 % If you need a custom contact, you can define a bullet here :
-\setmystyle[custom0bullet]{\color{icons}\faBook}
+\setmystyle[custom0bullet]{\color{icons}\faBolt}
 \usepackage[utf8]{inputenc}
 %\academictitle{PhD}
 \firstname{Jules}
@@ -76,4 +76,13 @@
 \skill[Novels]{more than 60, mainly in Adventure and Science Fiction genres}
 \skill[Songs and Poems]{more than 180 in various genres}
 \end{skills}
+% Argument for fields env. are title, cols count and max rate
+\begin{fields}{Literary genre}{3}{5}
+\field{Science-Fiction}{5}
+\field{Adventure}{5}
+\field{Essay}{3}
+\field{Suspense}{3}
+\field{Thriller}{2}
+\field{Romance}{0}
+\end{fields}
 \end{document}

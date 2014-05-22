@@ -120,6 +120,7 @@
 \newcommand*{\rendercontact}{ }
 \newcommand*{\rendercontactifdefined}{ }
 
+\newenvironment{fields}[3]{ }{ }
 \newenvironment{missions}{ }{ }
 \newenvironment{skills}[1]{ }{ }
 

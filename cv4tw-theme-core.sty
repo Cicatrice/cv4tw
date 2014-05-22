@@ -9,6 +9,7 @@
 \RequirePackage{fontawesome}
 \RequirePackage{realboxes}
 \RequirePackage{array}
+\RequirePackage{forloop}
 
 \AtBeginDocument{\maketitle}
 
@@ -30,10 +31,17 @@
 %Useful lengths
 \newlength{\cvleftwidth}\setlength{\cvleftwidth}{4.5cm}
 \newlength{\cvrightwidth}\setlength{\cvrightwidth}{14cm}
+\newlength{\cvfielditemparskip}\setlength{\cvfielditemparskip}{0.5em}
 \newlength{\cvskillitemparskip}\setlength{\cvskillitemparskip}{-0.8em}
 \newlength{\cvmissionsitemsep}\setlength{\cvmissionsitemsep}{0em}
+\newlength{\cvfieldsep}\setlength{\cvfieldsep}{0em}
 \newlength{\sectionrule}\setlength{\sectionrule}{\textwidth}
+\setlength{\parindent}{0cm}
 
+\newcounter{currentrate}
+\newcounter{fieldsbyrow}
+\newcounter{maxrate}
+\newcounter{fieldscurrentcolumn}
 % Set \emph command with "em" color
 \DeclareTextFontCommand{\emph}{\color{main}}
 
@@ -68,8 +76,44 @@
 			{\mystyle[cvstorydescription] #5}
 		\fi
 	\end{minipage}
-	\\
 	\end{flushleft}
+}
+
+% Rate fields related to a profile
+\renewenvironment*{fields}[3]{
+	\setcounter{fieldsbyrow}{#2}
+	\addtocounter{fieldsbyrow}{-1}
+	\setcounter{maxrate}{#3}
+	\addtocounter{maxrate}{-1}
+	\setcounter{fieldscurrentcolumn}{0}
+	\newcommand{\formatfieldcell}[2]{
+	\makeatletter
+		\ifnum\value{fieldscurrentcolumn}=\value{fieldsbyrow}
+			\setcounter{fieldscurrentcolumn}{0}
+			\expandafter\@firstoftwo
+		\else
+			\stepcounter{fieldscurrentcolumn}
+			\expandafter\@secondoftwo
+		\fi
+		{{\mystyle[field] ##1} & ##2 \\[\cvfielditemparskip] }
+		{{\mystyle[field] ##1} & ##2 & }
+			
+	\makeatother
+	}
+
+	\newcommand*{\field}[2]{
+		\formatfieldcell{##1}{
+			\forloop{currentrate}{0}{\value{currentrate} < #3}{
+			\ifnum##2>\value{currentrate}\mystyle[fieldratefull]\else\mystyle[fieldrateempty]\fi
+			}
+		}
+	}
+	\begin{minipage}[t]{\textwidth}
+	{\hspace*{\cvleftwidth}\mystyle[subsectiontitle] #1}\\[1.5em]
+	\begin{tabular}[t]{*{#2}{rl}}
+}{
+	\end{tabular}\\[2em]
+	\end{minipage}
 }
 
 % Describe missions related to a job
