@@ -5,9 +5,9 @@ LaTeX CV class, with assets, social networks, and customizable styles
 
 Available themes
 ----------------
-* `sharp`: Elegant header, to introduce a long resume
-* `simple`: A classic format, perfect for resume with short contacts details
-* `compact`: design for short CV (1 page), with a left column showing your picture and contact details
+* `sharp`: Elegant header, to introduce a long resume (https://github.com/Cicatrice/cv4tw/blob/master/examples/sample-jules-verne-sharp.pdf)
+* `simple`: A classic format, perfect for resume with short contacts details (https://github.com/Cicatrice/cv4tw/blob/master/examples/sample-jules-verne-simple.pdf)
+* `compact`: design for short CV (1 page), with a left column showing your picture and contact details (https://github.com/Cicatrice/cv4tw/blob/master/examples/sample-jules-verne-compact.pdf)
 
 Available schemes
 -----------------
