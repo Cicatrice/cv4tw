@@ -1,11 +1,12 @@
-%\RequirePackage{float}
-%\RequirePackage{picins}
-
+\RequirePackage{boxedminipage}
+%\RequirePackage{wrapfig}
+%\RequirePackage{picinpar}
+\newgeometry{left=1cm,top=1cm,bottom=1cm,right=1cm}
 %Useful lengths
 \newlength{\cvpicturewidth}\setlength{\cvpicturewidth}{3.2cm}
 \setlength{\cvleftwidth}{4cm}
 \setlength{\cvrightwidth}{8cm}
-%\setlength{\sectionrule}{10cm}
+\setlength{\sectionrule}{13cm}
 \newlength{\cvtitlecolumnwidth}\setlength{\cvtitlecolumnwidth}{5.5cm}
 \newlength{\cvmaincolumnwidth}\setlength{\cvmaincolumnwidth}{13cm}
 \newlength{\cvtitlewidth}\setlength{\cvtitlewidth}{10cm}
@@ -18,12 +19,22 @@
 % Set \emph command with "em" color
 \DeclareTextFontCommand{\emph}{\color{main}}
 
+\fancypagestyle{cvcompact}{
+ \renewcommand{\headrulewidth}{0pt}
+ \renewcommand{\footrulewidth}{0pt}
+ \fancyhf{}
+% \lfoot{\mystyle[footnote]\@cvfirstname~\@cvlastname}
+% \cfoot{\mystyle[footnote]\@ifundefined{@cvtitle}{}{\@cvtitle}}
+% \rfoot{\mystyle[footnote]\thepage/\pageref{LastPage}}
+}
+\pagestyle{cvcompact}
+
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 
 \renewcommand*{\maketitle}{
-	{\mystyle[name]\@cvfirstname~\@cvlastname\\[0.5em]}
-%\parpic[lt]{
-%\begin{figure}[t]
-	\begin{minipage}[c]{\cvtitlecolumnwidth}
+	\noindent
+	\begin{minipage}[t]{\cvtitlecolumnwidth}
+	{\mystyle[name]\@cvfirstname~\@cvlastname}\\
 	\@ifundefined{@cvpicture}{}{\centering\begin{minipage}[m]{\cvpicturewidth}\fboxsep=1mm\fboxrule=0.05pt\fcolorbox{black}{white}{\includegraphics[keepaspectratio=true,width=\cvpicturewidth]{\@cvpicture}}\end{minipage}\\}
 	\@ifundefined{@cvtitle}{}{{\mystyle[title]\@cvtitle}\\[0.5em]}
 	\@ifundefined{@cvquote}{}{{\mystyle[quote]\@cvquote}\\[0.5em]}
@@ -68,12 +79,14 @@
 \rendercontactifdefined{address}
 \end{tabular}
 	\end{minipage}
-%}
-%\end{figure}
-\begin{minipage}{\cvmaincolumnwidth}
+	\hfill
+	\noindent
+\begin{minipage}[t]{\cvmaincolumnwidth}
 }
 
-\AtEndDocument{\end{minipage}}
+\AtEndDocument{ %\end{minipage}}
+	\end{minipage}
+}
 
 \renewcommand*{\renderasset}[1]{ \mystyle[assetbullet]&\begin{tabular}[t]{>{\mystyle[asset]}l}\cvasset[#1]\end{tabular}\\[0.3em]}
 

@@ -1,15 +1,17 @@
-CVNAME=sample-jules-verne
+CVNAME?=sample-jules-verne
+CVTHEME?=sharp
 LATEX=xelatex
+
 export TEXINPUTS=.:..:
 
-all: $(CVNAME).pdf
+all: $(CVNAME)-$(CVTHEME).pdf
 
 force: clean all
 
 clean:
-	rm -f $(CVNAME).pdf
+	rm -f $(CVNAME)-$(CVTHEME).pdf
 
-$(CVNAME).pdf: $(CVNAME).tex
+$(CVNAME)-$(CVTHEME).pdf: $(CVNAME)-$(CVTHEME).tex
 	@$(LATEX) $<
 	#run it twice, to fix page numbers
 	@$(LATEX) $<
