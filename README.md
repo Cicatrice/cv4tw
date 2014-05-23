@@ -53,11 +53,11 @@ Compile example
 * on Windows, edit Makefile, and replace `TEXINPUTS=.:..:` with `TEXINPUTS=..`
 * run: 
 ```bash
-make clean && make
+make clean all
 ```
 * default theme is [`sharp`](examples/sample-jules-verne-sharp.pdf). To use another exemple, run the following command:
 ```bash
-CVTHEME=compact make clean && make
+CVTHEME=compact make clean all
 ```
 
 
