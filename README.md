@@ -49,7 +49,7 @@ on Windows
 
 Compile example
 ===============
-* go in cv4tw/examples folder
+* go in [`examples`](examples) folder
 * on Windows, edit Makefile, and replace `TEXINPUTS=.:..:` with `TEXINPUTS=..`
 * run: 
 ```bash
