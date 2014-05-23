@@ -51,7 +51,14 @@ Compile example
 ===============
 * go in cv4tw/examples folder
 * on Windows, edit Makefile, and replace `TEXINPUTS=.:..:` with `TEXINPUTS=..`
-* run : `make clean && make`
+* run: 
+```bash
+make clean && make
+```
+* default theme is [`sharp`](examples/sample-jules-verne-sharp.pdf). To use another exemple, run the following command:
+```bash
+CVTHEME=compact make clean && make
+```
 
 
 Change logs
