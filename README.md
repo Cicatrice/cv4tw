@@ -9,6 +9,8 @@ Available themes
 * [`simple`](examples/sample-jules-verne-simple.pdf): A classic format, perfect for resume with short contacts details
 * [`compact`](examples/sample-jules-verne-compact.pdf): design for short CV (1 page), with a left column showing your picture and contact details 
 
+[Have a look to the themes matrix !](http://cv4tw.6kt.eu/themes-matrix.html)
+
 Available schemes
 -----------------
 * `celadon`
