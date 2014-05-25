@@ -1,12 +1,17 @@
 Choose a theme and a scheme
 ===========================
 
-To help you choose between default themes and schemes, use the [Themes matrix](http://cv4tw.6kt.eu/themes-matrix.html).
+To help you choose between themes and schemes, use the [Themes matrix](http://cv4tw.6kt.eu/themes-matrix.html).
 
 Once choosen, use the following line to setup your theme:
 ```tex
 \usetheme[<scheme>]{<theme>}
 ```
+e.g.:
+```tex
+\usetheme[celadon]{sharp}
+```
+
 
 Create a custom scheme
 ======================
@@ -25,7 +30,16 @@ RGB value are decimal.
 Setup your custom styles
 ========================
 
-CV4TW is designed to be highly customizable. Here is the list of all the style that can be redefined:
+CV4TW is designed to be highly customizable. To change a style, add this line after `\usetheme` statment:
+```tex
+\setmystyle[<style>]{<content>}
+```
+e.g.:
+```tex
+\setmystyle[quote]{\Huge}      % write your quote bigger
+\setmystyle[missionbullet]{+}  % use plus as a bullet for missions
+```
+
 
 General styles
 -----------
@@ -35,7 +49,7 @@ General styles
  * `sectiontitle`: Section title
  * `subsectiontitle`: Sub-section title
  * `icons`: The default style for icons/bullets
- * `footnote`: 
+ * `footnote`: Footnote style
 
 Header styles
 -------------
