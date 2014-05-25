@@ -68,7 +68,8 @@ If you need some changes in themes, you can have a look to [this guide](CUSTOMIZ
 
 Change logs
 ===========
-* 2014-05-21 : quick install guide, custom fields added
-* 2014-01-19 : working version, lack a bit of documentation
-* 2014-01-08 : alpha version, almost working
+* 2014-05-25: even more documentation
+* 2014-05-21: quick install guide, custom fields added
+* 2014-01-19: working version, lack a bit of documentation
+* 2014-01-08: alpha version, almost working
 
