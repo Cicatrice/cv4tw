@@ -62,6 +62,9 @@ make clean all
 CVTHEME=compact make clean all
 ```
 
+Go further with customization
+=============================
+If you need some changes in themes, you can have a look to [this guide](CUSTOMIZE.md).
 
 Change logs
 ===========
