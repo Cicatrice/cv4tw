@@ -140,7 +140,7 @@ If you want to reorder the contacts zones, you will have to use the following li
 \rendercontactifdefined{email}
 \rendercontactifdefined{twitter}
 }
-\setcvcontactszone[main]{%
+\setcvcontactszone[social]{%
 \rendercontactifdefined{custom0}
 \rendercontactifdefined{linkedin}
 }
