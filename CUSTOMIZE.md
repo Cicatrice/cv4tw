@@ -128,3 +128,31 @@ All bullets should contain a character or string. If you are not happy with one 
  * `fieldbullet`
  * `assetbullet`
  * `missionbullet`
+
+Reorder contacts
+================
+
+If you want to reorder the contacts zones, you will have to use the following lines, just before `\begin{document}` line :
+
+```tex
+\setcvcontactszone[main]{% Finishing this line with a % is important to avoid a bad align of icons
+\rendercontactifdefined{cellphone}
+\rendercontactifdefined{email}
+\rendercontactifdefined{twitter}
+}
+\setcvcontactszone[main]{%
+\rendercontactifdefined{custom0}
+\rendercontactifdefined{linkedin}
+}
+\setcvcontactszone[extra]{%
+\rendercontactifdefined{age}
+\rendercontactifdefined{fax}
+\rendercontactifdefined{homepage}
+}
+```
+
+Here is the list of zones you can redefine this way :
+ * `main`: contains e-mail address, phone numbers, ...
+ * `social`: contains social networks contacts
+ * `extra`: contains fields like age, home address
+

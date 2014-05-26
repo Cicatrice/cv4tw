@@ -7,6 +7,8 @@
 \newlength{\cvassetspanelleftmargin}\setlength{\cvassetspanelleftmargin}{1cm}
 \newlength{\cvcontactpanelwidth}\setlength{\cvcontactpanelwidth}{7cm}
 
+\DeclareTextFontCommand{\emph}{\color{main}}
+
 \renewcommand*{\maketitle}{
 	\DeclareTextFontCommand{\emph}{\color{contrastmain}}
 	\colorlet{iconstemp}{icons}
@@ -36,43 +38,17 @@
 	\colorlet{icons}{iconstemp}
 	\@ifundefined{@cvquote}{}{{\centering\mystyle[quote]\@cvquote\\[2ex]}}
 	\begin{minipage}[t]{0.3\textwidth} \begin{tabular}[t]{@{}c@{}l@{}}
-	\rendercontactifdefined{email}
-	\rendercontactifdefined{homepage}
-	\rendercontactifdefined{homepagessl}
-	\rendercontactifdefined{customhomepage}
-	\rendercontactifdefined{cellphone}
-	\rendercontactifdefined{phone}
-	\rendercontactifdefined{fax}
+\cvcontactszone[main]
 \end{tabular}
 	\end{minipage}
 \hfill
 	\begin{minipage}[t]{0.3\textwidth} \begin{tabular}[t]{@{}c@{}l@{}}
-\rendercontactifdefined{custom0}
-\rendercontactifdefined{custom1}
-\rendercontactifdefined{custom2}
-\rendercontactifdefined{custom3}
-\rendercontactifdefined{custom4}
-
-	\rendercontactifdefined{github}
-	\rendercontactifdefined{linkedin}
-	\rendercontactifdefined{twitter}
-	\rendercontactifdefined{googleplus}
-	\rendercontactifdefined{facebook}
-	\rendercontactifdefined{vk}
-	\rendercontactifdefined{pinterest}
+\cvcontactszone[social]
 \end{tabular}
 	\end{minipage}
-	\DeclareTextFontCommand{\emph}{\color{main}}
 \hfill
 	\begin{minipage}[t]{0.3\textwidth} \begin{tabular}[t]{@{}c@{}l@{}}
-\rendercontactifdefined{custom5}
-\rendercontactifdefined{custom6}
-\rendercontactifdefined{custom7}
-\rendercontactifdefined{custom8}
-\rendercontactifdefined{custom9}
-	\rendercontactifdefined{age}
-	\rendercontactifdefined{spokenlanguages}
-	\rendercontactifdefined{address}
+\cvcontactszone[extra]
 \end{tabular}
 	\end{minipage}\\
 \\[1em]
@@ -85,5 +61,6 @@
 \renewcommand*{\rendercontact}[1]{\mystyle[#1bullet] & \begin{tabular}[t]{>{\mystyle[#1]}l}\cvcontactlink{#1}\end{tabular} \\[0.3em]}
 
 \renewcommand*{\rendercontactifdefined}[1]{\ifcvcontact[#1]{\rendercontact{#1}}{\ignorespaces}}
+
 
 \endinput

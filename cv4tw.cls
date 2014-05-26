@@ -87,13 +87,15 @@
 \newcommand*{\setcvasset}[2][]{\expandafter\qdset{cvasset#1}{#2}}
 \newcommand*{\cvasset}[1][]{\qdget{cvasset#1}}
 \newcommand*{\ifcvasset}[3][]{\qdif{cvasset#1}{#2}{#3}}
+\newcommand*{\setcvcontactszone}[2][]{\expandafter\qdset{cvcontactszone#1}{#2}}
+\newcommand*{\cvcontactszone}[1][]{\qdget{cvcontactszone#1}}
 \newcommand*{\setcvcontact}[2][]{\expandafter\qdset{cvcontact#1}{#2}}
 \newcommand*{\cvcontact}[1][]{\qdget{cvcontact#1}}
 \newcommand*{\cvcontactlink}[1]{
 \IfEqCase{#1}{
 {email}{ \qdlink{mailto:}{cvcontact#1}{}}%
 {homepage}{ \qdlink{http://}{cvcontact#1}{}}%
-{homepagessl}{ \qdlink{http://}{cvcontact#1}{}}%
+{homepagessl}{ \qdlink{https://}{cvcontact#1}{}}%
 {customhomepage}{ \qdlink{}{cvcontact#1}{}}%
 {vk}{ \qdlink{http://www.vk.com/}{cvcontact#1}{}}%
 {pinterest}{ \qdlink{http://www.pinterest.com/}{cvcontact#1}{}}%

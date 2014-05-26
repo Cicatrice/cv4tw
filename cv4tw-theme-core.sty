@@ -11,6 +11,41 @@
 \RequirePackage{array}
 \RequirePackage{forloop}
 
+\setcvcontactszone[main]{%
+\rendercontactifdefined{custom0}%
+\rendercontactifdefined{custom1}%
+\rendercontactifdefined{custom2}%
+\rendercontactifdefined{email}%
+\rendercontactifdefined{homepage}%
+\rendercontactifdefined{homepagessl}%
+\rendercontactifdefined{customhomepage}%
+\rendercontactifdefined{cellphone}%
+\rendercontactifdefined{phone}%
+\rendercontactifdefined{fax}%
+}%
+
+\setcvcontactszone[social]{%
+\rendercontactifdefined{custom3}%
+\rendercontactifdefined{custom4}%
+\rendercontactifdefined{custom5}%
+\rendercontactifdefined{github}%
+\rendercontactifdefined{linkedin}%
+\rendercontactifdefined{twitter}%
+\rendercontactifdefined{googleplus}%
+\rendercontactifdefined{facebook}%
+\rendercontactifdefined{vk}%
+\rendercontactifdefined{pinterest}%
+}%
+\setcvcontactszone[extra]{%
+\rendercontactifdefined{custom6}%
+\rendercontactifdefined{custom7}%
+\rendercontactifdefined{custom8}%
+\rendercontactifdefined{custom9}%
+\rendercontactifdefined{age}%
+\rendercontactifdefined{spokenlanguages}%
+\rendercontactifdefined{address}%
+}%
+
 \AtBeginDocument{\maketitle}
 
 % Set \emph command with "em" color
