@@ -9,7 +9,7 @@ all: $(CVNAME)-$(CVTHEME).pdf
 force: clean all
 
 clean:
-	rm -f $(CVNAME)-$(CVTHEME).pdf
+	rm -f $(CVNAME)-$(CVTHEME).pdf $(CVNAME)-$(CVTHEME).log $(CVNAME)-$(CVTHEME).out $(CVNAME)-$(CVTHEME).aux
 
 $(CVNAME)-$(CVTHEME).pdf: $(CVNAME)-$(CVTHEME).tex
 	@$(LATEX) $<
