@@ -37,7 +37,7 @@ CV4TW is designed to be highly customizable. To change a style, add this line af
 e.g.:
 ```tex
 \setmystyle[quote]{\Huge}      % write your quote bigger
-\setmystyle[missionbullet]{+}  % use plus as a bullet for missions
+\setmystyle[missionbullet]{\mystyle[icons] +}  % use plus as a bullet for missions
 ```
 
 
