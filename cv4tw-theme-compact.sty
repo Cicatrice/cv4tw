@@ -1,7 +1,7 @@
 \RequirePackage{boxedminipage}
 %\RequirePackage{wrapfig}
 %\RequirePackage{picinpar}
-\newgeometry{left=1cm,top=1cm,bottom=1cm,right=1cm}
+\newgeometry{left=0.8cm,top=0.8cm,bottom=0.8cm,right=0.8cm}
 %Useful lengths
 \newlength{\cvpicturewidth}\setlength{\cvpicturewidth}{3.2cm}
 \setlength{\cvleftwidth}{4cm}
@@ -23,15 +23,13 @@
  \renewcommand{\headrulewidth}{0pt}
  \renewcommand{\footrulewidth}{0pt}
  \fancyhf{}
-% \lfoot{\mystyle[footnote]\@cvfirstname~\@cvlastname}
-% \cfoot{\mystyle[footnote]\@ifundefined{@cvtitle}{}{\@cvtitle}}
-% \rfoot{\mystyle[footnote]\thepage/\pageref{LastPage}}
 }
 \pagestyle{cvcompact}
 
-\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+\AtBeginDocument{\begin{minipage}[t][0pt]{\linewidth}}
 
 \renewcommand*{\maketitle}{
+
 	\noindent
 	\begin{minipage}[t]{\cvtitlecolumnwidth}
 	{\mystyle[name]\@cvfirstname~\@cvlastname}\\
@@ -59,7 +57,8 @@
 \begin{minipage}[t]{\cvmaincolumnwidth}
 }
 
-\AtEndDocument{ %\end{minipage}}
+\AtEndDocument{%
+	\end{minipage}
 	\end{minipage}
 }
 
