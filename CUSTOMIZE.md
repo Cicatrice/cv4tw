@@ -4,11 +4,11 @@ Choose a theme and a scheme
 To help you choose between themes and schemes, use the [Themes matrix](http://cv4tw.6kt.eu/themes-matrix.html).
 
 Once choosen, use the following line to setup your theme:
-```tex
+```latex
 \usetheme[<scheme>]{<theme>}
 ```
 e.g.:
-```tex
+```latex
 \usetheme[celadon]{sharp}
 ```
 
@@ -18,7 +18,7 @@ Create a custom scheme
 If you are not happy with the given schemes, feel free to create yours !
 
 To do so, add the following lines, right before a `\usetheme` statment:
-```tex
+```latex
 \definecolorifnotdef{contrastmain}{RGB}{219,255,242}  % Main theme color in contrast mode
 \definecolorifnotdef{main}{RGB}{60,76,70}             % Main theme color
 \definecolorifnotdef{soft}{RGB}{50,64,58}             % Soft color, for title
@@ -31,11 +31,11 @@ Setup your custom styles
 ========================
 
 CV4TW is designed to be highly customizable. To change a style, add this line after `\usetheme` statment:
-```tex
+```latex
 \setmystyle[<style>]{<content>}
 ```
 e.g.:
-```tex
+```latex
 \setmystyle[quote]{\Huge}      % write your quote bigger
 \setmystyle[missionbullet]{\mystyle[icons] +}  % use plus as a bullet for missions
 ```
@@ -129,12 +129,31 @@ All bullets should contain a character or string. If you are not happy with one 
  * `assetbullet`
  * `missionbullet`
 
+Manage contacts
+===============
+
+Custom contact field
+--------------------
+To add a custom field, first define a bullet for it:
+```latex
+\setmystyle[custom0bullet]{\color{icons} :-) }
+```
+
+Then you can add a value to this contact
+```latex
+\setcvcontact[custom0]{I'm Cicatrice}
+```
+or give a link, using `\href`
+```latex
+\setcvcontact[custom0]{\href{https://myname.is/Cicatrice}{I'm Cicatrice}}
+```
+
 Reorder contacts
-================
+----------------
 
 If you want to reorder the contacts zones, you will have to use the following lines, just before `\begin{document}` line :
 
-```tex
+```latex
 \setcvcontactszone[main]{% Finishing this line with a % is important to avoid a bad align of icons
 \rendercontactifdefined{cellphone}
 \rendercontactifdefined{email}
